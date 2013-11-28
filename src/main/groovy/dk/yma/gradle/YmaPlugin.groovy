@@ -9,12 +9,12 @@ import org.gradle.plugins.ide.eclipse.EclipsePlugin;
 
 class YmaPlugin implements Plugin<Project> {
     void apply(Project project) {
-    	project.plugins.apply(JavaPlugin.class)
-    	project.plugins.apply(GroovyPlugin.class)
-    	project.plugins.apply(EclipsePlugin.class)
-		project.plugins.apply(MavenPlugin.class)
+    	project.plugins.apply JavaPlugin 
+    	project.plugins.apply GroovyPlugin
+    	project.plugins.apply EclipsePlugin
+		project.plugins.apply MavenPlugin
 
-    	project.tasks.eclipse.dependsOn(project.tasks.cleanEclipse)
+    	project.tasks.eclipse.dependsOn project.tasks.cleanEclipse
 
 		project.eclipse.project {
 			file {
@@ -32,7 +32,6 @@ class YmaPlugin implements Plugin<Project> {
 					eclipseClasspath.entries.removeAll()
 				}
 			}
-			//containers 'GROOVY_SUPPORT'
 		}
 
 		project.repositories {
